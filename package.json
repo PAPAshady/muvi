@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/PAPAshady/muvi/issues"
   },
-  "homepage": "https://github.com/PAPAshady/muvi#readme"
+  "homepage": "https://github.com/PAPAshady/muvi#readme",
+  "dependencies": {
+    "swiper": "^11.1.4"
+  }
 }
