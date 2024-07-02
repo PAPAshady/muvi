@@ -19,7 +19,7 @@ body {
 .nav-container nav {
     display: flex;
     align-items: center;
-    width: 95%;
+    width: 90%;
     max-width: 1200px;
     justify-content: space-between;
     color: #fff;
