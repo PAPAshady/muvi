@@ -140,6 +140,7 @@ main .container{
     font-size: .9rem;
 }
 
+/* swiper js custom styles for banner slider start */
 .swiper-pagination{
     margin-bottom: 10px;
     display: flex;
@@ -162,6 +163,7 @@ main .container{
     border-radius: 500px;
     opacity: 1;
 }
+/* swiper js custom styles for banner slider end */
 
 @media screen and (min-width : 620px) {
 
