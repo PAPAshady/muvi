@@ -1,5 +1,6 @@
 @import url(../navbar/navbar.css);
 @import url(../components/buttons.css);
+@import url(../components/medias.css);
 
 .container{
     width: 90%;

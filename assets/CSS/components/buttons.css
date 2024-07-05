@@ -1,16 +1,18 @@
 .btn,
 .btn-fill{
     border-radius: 5px;
-    cursor: pointer;
     font-size: 1rem;
     letter-spacing: 1px;
-    padding: 5px;
+    padding: 5px 3px;
     color: #fff;
     border: 1px solid #FF0000;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
 }
 
 .btn-fill{
-    border: none;
     background: #FF0000;
     opacity: .8;
     transition: opacity .2s;
@@ -22,8 +24,4 @@
 
 .btn{
     background: none;
-}
-
-.btn:hover{
-    border-width: 2px;
 }
