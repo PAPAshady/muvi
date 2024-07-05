@@ -10,11 +10,13 @@ body{
     --red : #FF0000;
 }
 
-/* banner slider start */
+/*********************** banner slider start ***********************/
 
 .slider-banner{
     padding-top: 75px;
-    height: 75dvh;
+    height: 70dvh;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .swiper-wrapper{
@@ -30,7 +32,10 @@ body{
     display: flex;
     position: relative;
     align-items: end;
-    padding-bottom: 20px;
+}
+
+.slide-contents{
+    margin-bottom: 20px;
 }
 
 .slider-banner .slide-buttons{
@@ -126,29 +131,59 @@ body{
     font-size: .9rem;
 }
 
+.swiper-pagination{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-pagination-bullet{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transition: all .2s;
+    opacity: .9;
+}
+
+.swiper-pagination-bullet-active{
+    width: 40px;
+    height: 12px;
+    background: var(--red);
+    border-radius: 500px;
+    opacity: 1;
+}
+
 @media screen and (min-width : 620px) {
 
     .slider-banner{
         height: 70dvh;
     }
 
-    .swiper-slide{
-        padding-bottom: 35px;
+    .slide-contents{
+        margin-bottom: 35px;
     }
 }
 
 @media screen and (min-width : 768px) {
+
+    .slider-banner{
+        height: 65dvh;
+    }
     
     .slider-banner .slide-infos{
         flex-direction: row;
-
     }
     
     .slider-banner .slide-description{
-        display: block;
+        display: -webkit-box;
         font-size: .8rem;
         line-height: 1.1;
         width: 70%;
+        margin-bottom: 60px;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
     }
 }
 
@@ -190,8 +225,8 @@ body{
     }
 
     
-    .swiper-slide{
-        padding-bottom: 50px;
+    .slide-contents{
+        margin-bottom: 50px;
     }
 
     .slider-banner .slide-description{
@@ -201,7 +236,7 @@ body{
     }
 
     .slider-banner{
-        height: 80dvh;
+        height: 85dvh;
     }
 
     .slider-banner .slide-buttons a {
@@ -210,4 +245,4 @@ body{
     }
 }
 
-/* banner slide end */
+/*********************** banner slider end ***********************/
