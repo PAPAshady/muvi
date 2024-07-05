@@ -7,7 +7,7 @@ const swiper = new Swiper(sliderElem, {
     loop : true,
 
     autoplay : {
-        delay : 3000,
+        delay : 5000,
     },
 
     pagination : {

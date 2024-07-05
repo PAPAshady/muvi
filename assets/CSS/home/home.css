@@ -7,7 +7,15 @@
 }
 
 body{
+    background-color: #202020;
     --red : #FF0000;
+    --gray : #808080;
+}
+
+main .container{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
 }
 
 /*********************** banner slider start ***********************/
@@ -17,6 +25,7 @@ body{
     height: 70dvh;
     overflow-x: hidden;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .swiper-wrapper{
@@ -246,3 +255,133 @@ body{
 }
 
 /*********************** banner slider end ***********************/
+
+/*********************** section title and section btn start ***********************/
+
+.section-title-and-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.section-title-and-btn a {
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.section-title-and-btn svg {
+    width: 25px;
+    height: 25px;
+}
+
+.section-title{
+    color: #fff;
+}
+
+@media screen and (min-width : 620px) {
+    .section-title-and-btn{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width : 768px) {
+    .section-title-and-btn{
+        font-size: 1.35rem;
+    }
+
+    .section-title-and-btn svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (min-width : 1200px) {
+    .section-title-and-btn{
+        font-size: 1.5rem;
+    }
+}
+
+/*********************** section title and section link end ***********************/
+
+/*********************** recently updated section start ***********************/
+
+
+.recently-updated-content-wrapper{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    color: #fff;
+    overflow: hidden;
+}
+
+.updated-series-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.updated-series-card .series-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+
+.updated-series-card img{
+    width: 35%;
+    height: 80%;
+    border-radius: 5px;
+}
+
+@media screen and (min-width : 480px) {
+    .recently-updated-content-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .updated-series-card img{
+        width: 50%;
+        height: 90%;
+    }
+}
+
+@media screen and (min-width : 768px) {
+    .recently-updated-content-wrapper{
+        gap: 0;
+    }
+
+    .updated-series-card img{
+        width: 40%;
+        height: 80%;
+    }
+
+    .updated-series-card .series-infos{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width : 992px) {
+    .recently-updated-content-wrapper{
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .updated-series-card img{
+        width: 100px;
+        height: 120px;
+    }
+    
+    .updated-series-card .series-infos{
+        font-size: .9rem;
+    }
+}
+
+
+/*********************** recently updated section end ***********************/
+
