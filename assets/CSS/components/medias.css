@@ -1,21 +1,29 @@
 .media-content-wrapper{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    row-gap: 40px;
+    column-gap: 30px;
 }
 
 .media-card{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     overflow: hidden;
+    height: auto !important;
 }
 
 .media-card img {
     width: 100%;
-    height: 80%;
+    height: 400px;
     border-radius: 10px;
+
 }
+
+.media-card > a {
+    height: 100%;
+}
+
 
 .media-card .media-info{
     display: flex;
@@ -29,6 +37,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    padding: 5px 0;
 }
 
 .media-card .btn-wrapper{
@@ -60,7 +69,12 @@
 @media screen and (min-width : 992px) {
     .media-content-wrapper{
         grid-template-columns: repeat(4,1fr);
-        gap: 20px;
+        column-gap: 20px;
+        row-gap: 30px;
+    }
+
+    .media-card img{
+        height: 350px;
     }
 }
 
