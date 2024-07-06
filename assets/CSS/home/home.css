@@ -333,6 +333,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    overflow: hidden;
 }
 
 .updated-series-card .series-infos {
@@ -340,6 +341,14 @@ main {
     flex-direction: column;
     gap: 10px;
     font-size: .9rem;
+    width: 50%;
+    overflow: hidden;
+}
+
+.updated-series-card .series-infos p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .updated-series-card > a{
