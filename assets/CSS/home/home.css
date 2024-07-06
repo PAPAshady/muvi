@@ -341,7 +341,7 @@ main {
     flex-direction: column;
     gap: 10px;
     font-size: .9rem;
-    width: 50%;
+    width: 60%;
     overflow: hidden;
 }
 
