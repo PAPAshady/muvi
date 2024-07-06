@@ -12,7 +12,7 @@ body {
     padding: 10px;
     background-color: #202020;
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
 }
 
