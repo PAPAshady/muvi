@@ -337,11 +337,16 @@ main .container{
     font-size: .9rem;
 }
 
+.updated-series-card > a{
+    border-radius: 5px;
+    width: 35%;
+    height: 155px;
+    
+}
 
 .updated-series-card img{
-    width: 35%;
-    height: 80%;
-    border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width : 480px) {
@@ -349,20 +354,24 @@ main .container{
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .updated-series-card img{
-        width: 50%;
-        height: 90%;
+    .updated-series-card > a{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width : 620px) {
+    .updated-series-card > a{
+        height: 190px;
     }
 }
 
 @media screen and (min-width : 768px) {
     .recently-updated-content-wrapper{
-        gap: 0;
+        gap: 10px;
     }
 
-    .updated-series-card img{
+    .updated-series-card > a{
         width: 40%;
-        height: 80%;
     }
 
     .updated-series-card .series-infos{
@@ -376,9 +385,9 @@ main .container{
         gap: 20px;
     }
 
-    .updated-series-card img{
-        width: 100px;
-        height: 120px;
+    .updated-series-card > a{
+        width: 40%;
+        height: 145px;
     }
     
     .updated-series-card .series-infos{
