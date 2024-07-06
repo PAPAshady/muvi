@@ -271,7 +271,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: .9rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 30px;
 }
@@ -294,13 +294,13 @@ main {
 
 @media screen and (min-width : 620px) {
     .section-title-and-btn{
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 }
 
 @media screen and (min-width : 768px) {
     .section-title-and-btn{
-        font-size: 1.35rem;
+        font-size: 1.4rem;
     }
 
     .section-title-and-btn svg {
