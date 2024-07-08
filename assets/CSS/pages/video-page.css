@@ -36,4 +36,117 @@ main {
     padding-bottom: 50%;
 }
 
+
+/* video js skin customization start */
+
+.video-js .vjs-big-play-button {
+    height: 50px;
+    width: 50px;
+    margin-top: unset;
+    margin-left: unset;
+    transform: translate(-50%, -50%); 
+    border-radius: 50%;
+    background-color: var(--red);
+    border: none;
+}
+.vjs-big-play-button .vjs-icon-placeholder::before {
+    position: inherit;
+    top: unset;
+    left: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vjs-control-bar{
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,.7) 80%) !important;
+    height: 50px !important;
+    font-size: 10px;
+}
+
+.vjs-control-bar .vjs-icon-placeholder::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vjs-volume-panel{
+    align-items: center;
+}
+
+.vjs-play-progress{
+    background: #FF0000 !important;
+    color: #FF0000;
+}
+
+.vjs-remaining-time{
+    display: flex ;
+    align-items: center;
+}
+
+.vjs-playback-rate div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (min-width : 620px) {
+
+    .vjs-control-bar .vjs-icon-placeholder::before{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .vjs-current-time{
+        display: flex !important;
+        align-items: center;
+        padding-right: 0 !important;
+    }
+    
+    .vjs-time-divider{
+        display: flex;
+        align-items: center;
+    }
+    .vjs-duration{
+        display: flex !important;
+        align-items: center;
+        padding-left: 0 !important;
+    }
+    
+    .vjs-remaining-time{
+        display: none;
+    }
+}
+
+@media screen and (min-width : 768px) {
+    .vjs-big-play-button{
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
+
+@media screen and (min-width : 992px) {
+    .vjs-control-bar{
+        font-size: 13px !important;
+    }
+}
+
+@media screen and (min-width : 1200px) {
+    .vjs-control-bar{
+        font-size: 16px !important;
+    }
+
+    .vjs-big-play-button .vjs-icon-placeholder::before{
+        font-size: 50px;
+    }
+
+    .vjs-big-play-button{
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+/* video js skin customization end */
+
 /* video-player  end */
