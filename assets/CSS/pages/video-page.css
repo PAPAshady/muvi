@@ -455,7 +455,7 @@ h1{
 .comment{
     display: flex;
     gap: 10px;
-    font-size: .6rem;
+    font-size: .8rem;
 }
 
 .comment-infos {
@@ -467,7 +467,7 @@ h1{
 }
 
 .comment-infos p {
-    font-size: .7rem;
+    font-size: .9rem;
     margin-bottom: 5px;
     overflow-wrap: anywhere;
 }
@@ -496,7 +496,7 @@ h1{
     }
 
     .comment{
-        font-size: .8rem;
+        font-size: .85rem;
     }
 
     .comment-infos span{
@@ -504,7 +504,7 @@ h1{
     }
 
     .comment-infos p {
-        font-size: .9rem;
+        font-size: .95rem;
     }
 }
 
