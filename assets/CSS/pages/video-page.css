@@ -332,3 +332,53 @@ h1{
     }
 }
 /* video-infos end */
+
+/* video-episodes start */
+
+.section-title{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.episodes-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.episode{
+    background: #e4e2e2;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+}
+
+.episode.active{
+    background-color: var(--red);
+    color: #fff;
+}
+
+@media screen and (min-width : 480px) {
+    .episode{
+        padding: 15px;
+        font-size: .9rem;
+    }
+}
+
+@media screen and (min-width : 768px){
+    .episodes-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+}
+
+/* video-episodes end */
