@@ -434,6 +434,12 @@ h1{
     color: #fff;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.textarea-wrapper button:hover {
+    opacity: 1;
 }
 
 .textarea-wrapper textarea:focus{
