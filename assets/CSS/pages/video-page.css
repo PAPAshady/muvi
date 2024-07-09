@@ -25,7 +25,7 @@ main.container{
 
 main {
     padding-top: 120px;
-    margin-bottom: 70px;
+    margin-bottom: 100px !important;
 }
 
 /* video-player start */
