@@ -389,3 +389,129 @@ h1{
 }
 
 /* video-episodes end */
+
+/* comments start */
+
+.comment-section{
+    color: #fff;
+    margin-top: 50px;
+}
+
+.comment{
+    margin-bottom: 25px;
+}
+
+.write-comment{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.textarea-wrapper{
+    width: 100%;
+}
+
+.textarea-wrapper textarea{
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: .7rem;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.textarea-wrapper button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: .8rem;
+    background: var(--red);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.textarea-wrapper textarea:focus{
+    outline: none;
+}
+
+.comment-section img{
+    width: 50px;
+    height: 50px;
+    border-radius: 500px;
+}
+
+.comment{
+    display: flex;
+    gap: 10px;
+    font-size: .6rem;
+}
+
+.comment-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+}
+
+.comment-infos p {
+    font-size: .7rem;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.comment-btns{
+    overflow-wrap: break-word;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.comment-btns span{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+@media screen and (min-width : 768px) {
+    .comment-section textarea{
+        height: 100px;
+        width: 80%;
+        font-size: .9rem;
+        padding: 5px;
+    }
+
+    .comment{
+        font-size: .8rem;
+    }
+
+    .comment-infos span{
+        margin-bottom: 5px;
+    }
+
+    .comment-infos p {
+        font-size: .9rem;
+    }
+}
+
+@media screen and (min-width : 992px) {
+    .comment-section{
+        width: 85%;
+    }
+}
+
+
+@media screen and (min-width : 1200px) {
+    .comment-section{
+        width: 70%;
+    }
+}
+/* comments end */
