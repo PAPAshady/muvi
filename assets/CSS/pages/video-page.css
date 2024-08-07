@@ -284,20 +284,20 @@ h1{
 
     .video-infos .img-container{
         display: block;
-        width: 70%;
-
+        max-width: 250px;
+        max-height: 450px;
     }
 
     .video-infos ul li span:last-child{
         width: 70%;
     }
-}
-
-@media screen and (min-width : 1080px) {
-    .video-infos .img-container{
-        width: 60%;
+    .video-infos ul li span:last-child{
+        font-size: 1rem;
+        margin-left: 10px;
+        line-height: 1.1;
     }
 }
+
 @media screen and (min-width : 1200px) {
     .video-infos{
         gap: 40px;
@@ -315,9 +315,9 @@ h1{
     h1{
         font-size: 1.8rem;
     }
-
     .video-infos .img-container{
-        width: 60%;
+        max-width: 300px;
+        max-height: 450px;
     }
 }
 /* video-infos end */
