@@ -21,18 +21,26 @@ const videoJSConfigs = {
     controls : true,
     playbackRates : [0.5, 1, 1.25, 1.5, 2, 4],
     inactivityTimeout : 3000,
-
     plugins : {
         hotkeys : {
             volumeStep : 0.1,
             seekStep : 5,
         },
-
-        videoJsResolutionSwitcher : {
-            default : 'high',
-            dynamicLabel : true
-        }
-    }
+    },
+    controlBar: {
+        children: [
+           'playToggle',
+           'volumePanel',
+           'currentTimeDisplay',
+           'timeDivider',
+           'durationDisplay',
+           'progressControl',
+           'playbackRateMenuButton',
+           'qualitySelector',
+           'pictureInPictureToggle',
+           'fullscreenToggle',
+        ],
+    },
 }
 
 const player = videojs(video, videoJSConfigs)
@@ -55,10 +63,33 @@ async function loadData() {
         episode.casts.forEach(cast => casts.innerHTML += cast + ', ')
         player.poster(episode.videoPoster)
 
-        // you must load the video
+        const urlPromises = files.videos.map(async video => {
+            const downloadUrl = await getDownloadURL(video.ref)
+            return{
+                src : downloadUrl,
+                type : `video/${video.type}`,
+                label : video.quality + 'p',
+            }
+        })
+
+        const sources = await Promise.all(urlPromises)
+
+        player.src(sources)
+
+        player.on('loadedmetadata', ()=> {
+            const hours = Math.floor(player.duration() / 3600)
+            const minutes = Math.floor((player.duration() % 3600) / 60)
+            const seconds = Math.floor(player.duration() % 60)
+
+            const hourFormat = hours > 0 ? hours + ':' : ''
+            const minutesFormat = minutes < 10 ? '0' + minutes : minutes
+            const secondsFormat = seconds < 10 ? '0' + seconds : seconds
+
+            time.textContent = `${hourFormat, minutesFormat}:${secondsFormat}`
+        })
 
     }catch(err){
-        alert('An error occurred while getting the data from server.\nPlease check you connection and make sure you are connected via a VPN.')
+        alert('An error occurrged while getting the data from server.\nPlease check you connection and make sure you are connected via a VPN.')
         console.log(err);
     }
 }
@@ -82,14 +113,15 @@ async function getFiles () {
     const res = await listAll(folderRef)
     const files = {videos : [], subtitles : []}
     let fileType
-    
-    res.items.forEach(async file => {
-        fileType = file.name.split('.')[1]
-
+    let fileInfo
+ 
+    res.items.forEach(async fileRef => {
+        fileType = fileRef.name.split('.')[1]
+        fileInfo = fileRef.name.split('-')[1].split('.')[0].trim()
         if(fileType === 'srt' || fileType === 'vvt'){
-            files.subtitles.push({file, type : fileType})
+           files.subtitles.push({ref : fileRef, type : fileType, lang: fileInfo})
         }else{
-            files.videos.push({file, type : fileType})
+            files.videos.push({ref : fileRef, type : fileType, quality : fileInfo})
         }
     })
 
