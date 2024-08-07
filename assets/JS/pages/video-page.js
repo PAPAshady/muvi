@@ -79,7 +79,7 @@ async function loadData() {
                 src : downloadUrl,
                 kind : 'subtitles',
                 srclang : subtitle.lang,
-                label : subtitle.lang.toUpperCase()
+                label : subtitle.lang
             }
         })
 
