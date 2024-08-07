@@ -37,6 +37,7 @@ const videoJSConfigs = {
            'progressControl',
            'playbackRateMenuButton',
            'qualitySelector',
+           'subsCapsButton',
            'pictureInPictureToggle',
            'fullscreenToggle',
         ],
@@ -63,7 +64,7 @@ async function loadData() {
         episode.casts.forEach(cast => casts.innerHTML += cast + ', ')
         player.poster(episode.videoPoster)
 
-        const urlPromises = files.videos.map(async video => {
+        const videoPromises = files.videos.map(async video => {
             const downloadUrl = await getDownloadURL(video.ref)
             return{
                 src : downloadUrl,
@@ -72,9 +73,23 @@ async function loadData() {
             }
         })
 
-        const sources = await Promise.all(urlPromises)
+        const subtitlePromises = files.subtitles.map(async subtitle => {
+            const downloadUrl = await getDownloadURL(subtitle.ref)
+            return{
+                src : downloadUrl,
+                kind : 'subtitles',
+                srclang : subtitle.lang,
+                label : subtitle.lang.toUpperCase()
+            }
+        })
 
-        player.src(sources)
+        const subtitleSources = await Promise.all(subtitlePromises)
+        const videoSources = await Promise.all(videoPromises)
+
+        player.src(videoSources)
+        subtitleSources.forEach(subtitle => {
+            player.addRemoteTextTrack(subtitle, true)
+        })
 
         player.on('loadedmetadata', ()=> {
             const hours = Math.floor(player.duration() / 3600)
@@ -118,7 +133,7 @@ async function getFiles () {
     res.items.forEach(async fileRef => {
         fileType = fileRef.name.split('.')[1]
         fileInfo = fileRef.name.split('-')[1].split('.')[0].trim()
-        if(fileType === 'srt' || fileType === 'vvt'){
+        if(fileType === 'vtt'){
            files.subtitles.push({ref : fileRef, type : fileType, lang: fileInfo})
         }else{
             files.videos.push({ref : fileRef, type : fileType, quality : fileInfo})
