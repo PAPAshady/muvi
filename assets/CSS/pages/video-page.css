@@ -112,6 +112,10 @@ main {
     left: -1em !important;
 }
 
+.vjs-text-track-cue div{
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
 
 @media screen and (min-width : 620px) {
 
