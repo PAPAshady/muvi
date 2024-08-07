@@ -45,7 +45,6 @@ async function getAllSeries () {
 
 function renderSeries(seriesArr, containerElem) {
     containerElem.innerHTML = ''
-    console.log(containerElem);
     const allSeries = seriesArr.map(series => (
         `<div class="media-card">
             <a href="/video-page.html?id=${series.seriesID}">
