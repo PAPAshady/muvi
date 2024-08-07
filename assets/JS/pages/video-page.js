@@ -15,6 +15,7 @@ const country = $.getElementById('country')
 const dateRelease = $.getElementById('dateRelease')
 const production = $.getElementById('production')
 const casts = $.getElementById('casts')
+const EpisodeName  = $.getElementById('EpisodeName')
 
 
 const videoJSConfigs = {
@@ -49,21 +50,24 @@ const player = videojs(video, videoJSConfigs)
 
 async function loadData() {
     try{ 
-        const episode = await getData()
+        const series = await getData()
         const files = await getFiles()
 
-        title.textContent = episode.title
-        rating.textContent = episode.rating
-        description.textContent = episode.description
-        country.textContent = episode.country
-        dateRelease.textContent = episode.dateRelease
-        production.textContent = episode.producer
-        imagePreview.src = episode.imageURL
-        imagePreview.alt = episode.title
-        date.textContent = episode.dateRelease.split('/')[0]
-        episode.genres.forEach(genre => genresWrapper.innerHTML += `<a href="#">${genre}</a>`)
-        episode.casts.forEach(cast => casts.innerHTML += cast + ' , ')
-        player.poster(episode.videoPoster)
+        title.textContent = series.title
+        rating.textContent = series.rating
+        description.textContent = series.description
+        country.textContent = series.country
+        dateRelease.textContent = series.dateRelease
+        production.textContent = series.producer
+        imagePreview.src = series.imageURL
+        imagePreview.alt = series.title
+        date.textContent = series.dateRelease.split('/')[0]
+        series.genres.forEach(genre => genresWrapper.innerHTML += `<a href="#">${genre}</a>`)
+        series.casts.forEach(cast => casts.innerHTML += cast + ' , ')
+        console.log(series);
+        
+        EpisodeName.textContent = `Episode 1: ${series.seasons[0].episodes[0].episodeName}`
+        player.poster(series.videoPoster)
 
         const videoPromises = files.videos.map(async video => {
             const downloadUrl = await getDownloadURL(video.ref)
