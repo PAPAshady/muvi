@@ -20,7 +20,7 @@ const casts = $.getElementById('casts')
 const videoJSConfigs = {
     controls : true,
     playbackRates : [0.5, 1, 1.25, 1.5, 2, 4],
-    inactivityTimeout : 3000,
+    inactivityTimeout : 0,
     plugins : {
         hotkeys : {
             volumeStep : 0.1,
@@ -59,9 +59,10 @@ async function loadData() {
         dateRelease.textContent = episode.dateRelease
         production.textContent = episode.producer
         imagePreview.src = episode.imageURL
+        imagePreview.alt = episode.title
         date.textContent = episode.dateRelease.split('/')[0]
         episode.genres.forEach(genre => genresWrapper.innerHTML += `<a href="#">${genre}</a>`)
-        episode.casts.forEach(cast => casts.innerHTML += cast + ', ')
+        episode.casts.forEach(cast => casts.innerHTML += cast + ' , ')
         player.poster(episode.videoPoster)
 
         const videoPromises = files.videos.map(async video => {
@@ -103,6 +104,9 @@ async function loadData() {
             time.textContent = `${hourFormat, minutesFormat}:${secondsFormat}`
         })
 
+        // change the text for off subtitle btn
+        $.querySelector('.vjs-texttrack-settings').nextElementSibling.firstChild.textContent = 'OFF'
+            
     }catch(err){
         alert('An error occurrged while getting the data from server.\nPlease check you connection and make sure you are connected via a VPN.')
         console.log(err);
