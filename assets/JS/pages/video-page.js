@@ -17,7 +17,7 @@ const production = $.getElementById('production')
 const casts = $.getElementById('casts')
 
 
-const player = videojs(video, {
+const videoJSConfigs = {
     controls : true,
     playbackRates : [0.5, 1, 1.25, 1.5, 2, 4],
     inactivityTimeout : 3000,
@@ -26,9 +26,16 @@ const player = videojs(video, {
         hotkeys : {
             volumeStep : 0.1,
             seekStep : 5,
+        },
+
+        videoJsResolutionSwitcher : {
+            default : 'high',
+            dynamicLabel : true
         }
     }
-})
+}
+
+const player = videojs(video, videoJSConfigs)
 
 
 async function loadData() {
